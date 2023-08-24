@@ -1,7 +1,38 @@
-<ul>
-    $for(posts)$
-        <li>
-            <a href="$url$">$title$</a> - $date$
-        </li>
-    $endfor$
+<ul class="space-y-4">
+  $for(posts)$
+  <li
+    class="border-2 cursor-pointer border-slate-600 px-4 py-6 space-y-2 hover:scale-[1.01] transition ease-in-out"
+  >
+    <a href="$url$">
+      <article class="w-full max-w-6xl lg:mx-0 lg:max-w-6xl">
+        <time datetime="$date$" class="block text-sm leading-6 text-gray-600">
+          $date$</time
+        >
+        <div>
+          <h3
+            id="featured-post"
+            class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
+            $title$
+          </h3>
+          $if(teaser)$ $teaser$ $endif$
+
+          <div
+            class="mt-4 flex flex-col justify-between gap-6 sm:mt-8 sm:flex-row-reverse sm:gap-8 lg:mt-4 lg:flex-col"
+          >
+            <div class="flex">
+              <p
+                class="text-sm font-semibold leading-6 text-gray-600"
+                aria-describedby="featured-post"
+              >
+                Continue reading <span aria-hidden="true">&rarr;</span>
+              </p>
+            </div>
+            <div class="flex lg:border-t lg:border-gray-900/10 lg:pt-8"></div>
+          </div>
+        </div>
+      </article>
+    </a>
+  </li>
+  $endfor$
 </ul>
